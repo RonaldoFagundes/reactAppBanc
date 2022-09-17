@@ -6,7 +6,6 @@ import {
   TextInput, 
   TouchableOpacity,
   KeyboardAvoidingView,   
-  StyleSheet,
   Platform
 } from 'react-native';
 
@@ -39,7 +38,8 @@ useEffect(()=>{
    
   firebase.auth().onAuthStateChanged(function(user){
       if(user){
-        navigation.navigate("Home",{idUser:user.uid});        
+        // navigation.navigate("Home",{idUser:user.uid});        
+        navigation.navigate("Home"); 
       }
 
     });
@@ -54,8 +54,9 @@ useEffect(()=>{
 const logar = ()=>{
   firebase.auth().signInWithEmailAndPassword(email,password)
   .then((userCredencial)=>{
-    let user = userCredencial.user;
-    navigation.navigate("Home",{idUser:user.uid});
+   // let user = userCredencial.user;
+   // navigation.navigate("Home",{idUser:user.uid});
+    navigation.navigate("Home"); 
     //navigation.navigate("Home",{idUser:email});
   })
   .catch((error)=>{

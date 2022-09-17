@@ -29,6 +29,7 @@ const [showResult, setShowResult] = useState(false);
 const { today}   = useContext(AuthContext);
 const { name  }  = useContext(AuthContext);
 const { conta }  = useContext(AuthContext);
+const { id }  = useContext(AuthContext);
 
 const database = firebase.firestore();
 
@@ -38,7 +39,8 @@ const database = firebase.firestore();
 const [pagamentos, setPagamentos]=useState();
 const [description, setDescription]=useState();
 
-
+const [valorInf , setValorInf ] =useState ("");
+const [descInf , setDescInf ] =useState ("");
 
 
 
@@ -53,13 +55,35 @@ const [description, setDescription]=useState();
 
 
 const addPagamentos = () => {
+    
+  database.collection(id).add({
+    data:today,  
+    desc:description,    
+    pagamento:pagamentos,
+    recebimento:0 
+   })
 
-    database.collection("pagamentos").add({
+   /*  database.collection("pagamentos").add({
     data:today,  
     conta:conta,
     desc:description,    
     valor:pagamentos, 
-   }) 
+   }) */ 
+
+/*       usar esse 
+   database.collection("users").doc(user_id).set({
+      pagamentos:{
+        data:today,  
+        conta:conta,
+        desc:description,    
+        valor:pagamentos, 
+      },
+ }) 
+ */
+
+
+
+
 
      setComprovate({
       ...comprovante, data:today ,
@@ -68,7 +92,8 @@ const addPagamentos = () => {
      } );
 
      setShowResult(true)
-
+     setValorInf("")   
+     setDescInf("")
     alert("desc "+description+" pagamento valor "+pagamentos+" cadastrada com sucesso! ") 
    //navigation.navigate("Comprovante",{idUser:route.params.idUser})
    
@@ -136,7 +161,8 @@ const addPagamentos = () => {
         <TextInput style={Styles.inputPost}
           placeholder=" valor "
           type="number"
-          onChangeText={(valor)=>setPagamentos(valor)}
+          value={valorInf}
+          onChangeText={(value)=>setPagamentos(value) & setValorInf( parseFloat(value))} 
           // onChangeText={(valor)=> setInfo.pagar(valor)}
           //value={pagamentos}
         /> 
@@ -147,7 +173,8 @@ const addPagamentos = () => {
         <TextInput style={Styles.inputPost}
           placeholder=" descrição "
           type="text"
-          onChangeText={(valor)=>setDescription(valor)}
+          value={descInf}
+          onChangeText={(value)=>setDescription(value) & setDescInf(value) }
           //onChangeText={(valor)=> setInfo.description(valor)}
           //value={description}
         /> 

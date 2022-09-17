@@ -73,7 +73,7 @@ export default StyleSheet.create({
     
   flatContent:{
      width:300,
-     height:80,
+     height:120,
      paddingTop:10,
      paddingStart:14,
      marginTop:10,

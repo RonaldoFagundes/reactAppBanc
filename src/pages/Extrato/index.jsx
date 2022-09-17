@@ -35,6 +35,8 @@ export default function Extrato({navigation, route}) {
    const { relRec  }  = useContext(AuthContext);
    const { relPgto }  = useContext(AuthContext);
 
+   const { relValores }  = useContext(AuthContext);
+
   // const db = firebase.firestore();
 
 
@@ -68,13 +70,14 @@ const createDynamicTable = () => {
 
     var table = "";
 
-    for (let i in relRec) {
-      const item = relRec[i];
+    for (let i in relValores) {
+      const item = relValores[i];
       table = table +
     `
      <tr>
       <td>${item.data}</td>
-      <td>${item.valor}</td>
+      <td>${item.recebimento}</td>
+      <td>${item.pagamento}</td>
       <td>${item.desc}</td>      
      </tr>   
     `
@@ -179,7 +182,7 @@ const createDynamicTable = () => {
       <Text style={Styles.relTextLabel}> Relatório de Recebimentos </Text>
  
       <FlatList
-         data={relRec}
+         data={relValores}
          renderItem={({ item }) => {
 
       return(
@@ -187,15 +190,19 @@ const createDynamicTable = () => {
        <View style={Styles.flatContent} >
      
           <Text style={Styles.relTextDescription}>
-              {` Data :       ${item.data}`}  
+              {` Data :        ${item.data}`}  
           </Text> 
 
           <Text style={Styles.relTextDescription}>
-             {` Valor :      ${item.valor}`}  
+             {` Recebimentos : ${item.recebimento}`}  
+          </Text> 
+
+          <Text style={Styles.relTextDescription}>
+             {` Pagamentos :  ${item.pagamento}`}  
           </Text> 
 
          <Text style={Styles.relTextDescription}>
-             {` Descrição :  ${item.desc}`}  
+             {` Descrição :   ${item.desc}`}  
          </Text>     
        
        </View>
@@ -212,7 +219,7 @@ const createDynamicTable = () => {
 
 
 
- <View>
+{/*  <View>
 
 
     <Text style={Styles.relTextLabel}> Relatório de Pagamentos </Text>
@@ -230,7 +237,7 @@ const createDynamicTable = () => {
         </Text> 
 
         <Text style={Styles.relTextDescription}>
-          {` Valor :      ${item.valor}`}  
+          {` Valor :      ${item.pagamento}`}  
         </Text>
 
         <Text style={Styles.relTextDescription}>
@@ -243,7 +250,7 @@ const createDynamicTable = () => {
    }
 /> 
 
-</View>
+</View> */}
 
 
    <View style={Styles.pdfContent}>

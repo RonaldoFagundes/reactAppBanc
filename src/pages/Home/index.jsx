@@ -59,28 +59,190 @@ export default function Home({navigation, route}) {
     const [receb , setReceb] = useState([]);
     const [pgto , setPgto] = useState([]);
 
+    const [valores , setValores] = useState([]);
+    
+   
 
 
     const {today,setToday} = useContext (AuthContext);
+    const {id,setId} = useContext (AuthContext);
     const {name,setName} = useContext (AuthContext);
     const {conta,setConta} = useContext (AuthContext); 
+
     const {relRec,setRelRec} = useContext (AuthContext); 
     const {relPgto,setRelPgto} = useContext (AuthContext);
+
+    const {relValores,setRelValores} = useContext (AuthContext);
 
 
  
      
-    //const user_id = firebase.auth().currentUser.uid;
+  const userId = firebase.auth().currentUser.uid;
 
    //const user = await firestore().collection('Users').doc('ABC').get();
     
  
-     
+   
+   
+
+   const user_id = firebase.auth().currentUser.email;
+
     
+   
+
+
+
+   const verificarConta =()=>{
+
+      /* db.collection("users").doc(user_id).get().then((snapshot) => {       
+           if (snapshot.data() !=  undefined ){            
+             setModal(false);            
+             setName(snapshot.data().name);                    
+             setConta(snapshot.data().conta);
+             setUserName(snapshot.data().name);
+             setUserConta(snapshot.data().conta); 
+           }else {
+             setModal(true);            
+           }          
+         }) */
+
+         db.collection(user_id).doc("conta").get().then((snapshot) => {    
+            
+                  //  console.log(snapshot.data())
+           if (snapshot.data() !=  undefined ){  
+
+              setModal(false);            
+              setName(snapshot.data().name);                    
+              setConta(snapshot.data().number);
+              setUserName(snapshot.data().name);
+              setUserConta(snapshot.data().number); 
+              console.log(" existe user  ")
+            }else {
+
+            setModal(true);    
+            console.log(" não  existe user  ")
+            }   
+
+          })
+
+
+
+   }
+
+
+
+
+
+
+
+
+      const verificaSaldo = ()=>{
+
+         db.collection(user_id).onSnapshot((query)=>{
+            const recebeList =[]   
+                query.forEach((doc) => {
+                     recebeList.push({...doc.data(), id: doc.id})                         
+                  });                      
+                  setReceb(recebeList)                       
+                  setRelRec(recebeList)                
+                 })     
+
+
+      db.collection(user_id).onSnapshot((query)=>{
+             const pgtoList =[]           
+                   query.forEach((doc) => {
+                        pgtoList.push({...doc.data(), id: doc.id}) 
+                     });                         
+                     setPgto(pgtoList)
+                     setRelPgto(pgtoList)                 
+                    }) 
+
+
+
+        db.collection(user_id).onSnapshot((query)=>{
+                     const valoresList =[]           
+                           query.forEach((doc) => {
+                                valoresList.push({...doc.data(), id: doc.id}) 
+                             });                         
+                             setValores(valoresList) 
+                             setRelValores(valoresList)                                  
+                            }) 
+
+
+
+
+
+
+          /* db.collection('recebimentos').onSnapshot((query)=>{
+                 const recebeList =[]   
+                     query.forEach((doc) => {
+                          recebeList.push({...doc.data(), id: doc.id})                         
+                       });                      
+                       setReceb(recebeList)                       
+                       setRelRec(recebeList)                
+                      })     
+
+
+           db.collection('pagamentos').onSnapshot((query)=>{
+                  const pgtoList =[]           
+                        query.forEach((doc) => {
+                             pgtoList.push({...doc.data(), id: doc.id}) 
+                          });                         
+                          setPgto(pgtoList)
+                          setRelPgto(pgtoList)                 
+                         })  */
+     
+
+           }
+
+
+
+
+
 
 
 
      useEffect(()=>{
+
+      
+           console.log(user_id)
+
+          verificarConta();
+            verificaSaldo();
+
+
+        /*   db.collection(user_id).onSnapshot((query)=>{
+            const recebeList =[]   
+                query.forEach((doc) => {
+                     recebeList.push({...doc.data(), id: doc.id})                         
+                  });                      
+                 console.log(recebeList)                       
+                                 
+                 }) */
+
+
+          /* const u = 'user_email';
+          const user = db.collection('user_email');
+                if (u===user.id){
+                      console.log(" user email correto")   
+                } */
+
+              
+
+
+
+
+            /*  db.collection('user_email').onSnapshot((query)=>{
+               const pgtoList =[]           
+                     query.forEach((doc) => {
+                          pgtoList.push({...doc.data(), id: doc.id}) 
+                       });                         
+                       console.log(pgtoList)
+                                 
+                      })  */
+  
+
+
          
              /* db.collection(route.params.idUser).onSnapshot((query)=>{
                const userList =[]
@@ -90,6 +252,8 @@ export default function Home({navigation, route}) {
                  setInfo(userList)                 
                 }) */
                   
+
+
                                 
                 /* db.collection('users').onSnapshot((query)=>{
                   const userList =[]   
@@ -97,36 +261,37 @@ export default function Home({navigation, route}) {
                        userList.push({...doc.data(), id: doc.id}) 
                     });   
                     setInfo(userList)               
-                 })  */
+                 })  
+                 */
 
 
-                  db.collection("users").doc("dados").get().then((snapshot) => {
+
+
+
+
                 
-                    // console.log(snapshot.data().name)
-                    // console.log(snapshot.data().conta)                   
+                    /* db.collection("users").doc("b4i7khuHoH7qRiq2uUm3").get().then((snapshot) => {
+                    db.collection("users").doc("conta").get().then((snapshot) => {
+                    db.collection("users").doc(user_id).get().then((snapshot) => {
+                     console.log(snapshot.data().numero) 
+                     console.log(snapshot.data().nome)  
+                     }).catch((e) => console.log(e))  */  
+                    
 
-                       if (snapshot.data().conta === undefined){                             
-                            setModal(true)
-                          }else{
-                             setModal(false)
-                             setName(snapshot.data().name)                    
-                             setConta(snapshot.data().conta)
-                             setUserName(snapshot.data().name) 
-                             setUserConta(snapshot.data().conta)
-                            }   
-                         }).catch((e) => console.log(e))
 
-      
+                                               
+
+                     
 
 
 
-                   db.collection('recebimentos').onSnapshot((query)=>{
-                     const recebeList =[]
-      
+                           
+             
+                  /* db.collection('recebimentos').onSnapshot((query)=>{
+                     const recebeList =[]      
                      query.forEach((doc) => {
                           recebeList.push({...doc.data(), id: doc.id}) 
                        });
-      
                        setReceb(recebeList)
                        setRelRec(recebeList)
                       })
@@ -134,17 +299,14 @@ export default function Home({navigation, route}) {
 
 
 
-
-                     db.collection('pagamentos').onSnapshot((query)=>{
-                        const pgtoList =[]
-         
+                  db.collection('pagamentos').onSnapshot((query)=>{
+                        const pgtoList =[]         
                         query.forEach((doc) => {
                              pgtoList.push({...doc.data(), id: doc.id}) 
-                          });
-         
+                          });                         
                           setPgto(pgtoList)
                           setRelPgto(pgtoList)
-                         }) 
+                         })   */
 
 
 
@@ -153,7 +315,39 @@ export default function Home({navigation, route}) {
 
 
 
+
+
+
+
+
+                     /* const movimentacao = async () => {
+
+                     const users = db.collection("users");    
+                     const querySnapshot = await users.get();
+                     const dados = querySnapshot.docs;
+                     const listUsers = [];
+                     dados.forEach(
+                     doc => {
+                     listUsers.push({
+                     ...doc.data(),
+                     key: doc.id         
+                    })
+                    })
+                     
+                     --const doc = await users.doc(user_id).get();                       
+                     --console.log(doc.data()); 
+                    
+
+
+                       db.collection("users").doc(user_id).get().then((snapshot) => {
+                        db.collection("users").doc(user_id).collection('pagamento').then((snapshot) => {
+                         console.log(snapshot.data()) 
+                         })
+                        
+                      } */
               
+
+
            
             /*   
                let nm = ""
@@ -175,21 +369,36 @@ export default function Home({navigation, route}) {
 
 
 
+       const recebimentos = valores.reduce((soma , valor) => soma + parseFloat(valor.recebimento),0)
+
+       const pagamentos   = valores.reduce((soma , valor) => soma + parseFloat(valor.pagamento),0)
+                  
+       const saldo = recebimentos - pagamentos ;
 
 
 
-    const recebimentos = receb.reduce((soma , recebimento) => soma + parseFloat(recebimento.valor),0)
+   /*
+       const recebimentos = receb.reduce((soma , valor) => soma + parseFloat(valor.recebimento),0)
 
-    const pagamentos = pgto.reduce((soma , pagamento) => soma + parseFloat(pagamento.
-      valor),0)
-        
-    const saldo = recebimentos - pagamentos ;      
+       const pagamentos   = pgto.reduce((soma , valor) => soma + parseFloat(valor.pagamento),0)
+                  
+       const saldo = recebimentos - pagamentos ;
 
+
+            
+
+      const recebimentos = receb.reduce((soma , recebimento) => soma + parseFloat(recebimento.valor),0)
+
+     const pagamentos   = pgto.reduce((soma , pagamento) => soma + parseFloat(pagamento.
+        valor),0)
+         
+     const saldo = recebimentos - pagamentos; */
     
 
-     //const resposta = " recebimentos "+recebimentos+" pagamentos "+pagamentos+" saldo "+saldo 
-     //console.log(resposta)
 
+             
+    
+   
 
      
 
@@ -249,29 +458,53 @@ export default function Home({navigation, route}) {
                    //db.collection(route.params.idUser).add({   
                   // db.collection("users").add({  
 
-                      db.collection("users").doc("dados").set({
-                         name:user,
-                         conta:newCont
+                     // db.collection("users").doc("dados").set({
+                    //  db.collection("users").doc(user_id).set({
+                     db.collection(user_id).doc("conta").set({
+                        data:todayData, 
+                        desc:' abertura conta nº '+newCont,
+                        name:user,
+                        number:newCont,
+                        pagamento:0,
+                        recebimento:0
                       })  
 
                       alert(" usuario criado : "+user+" conta "+newCont);
                       setModal(false);
 
-                      db.collection("users").doc("dados").get().then((snapshot) => {
-                        
+                     // db.collection("users").doc("dados").get().then((snapshot) => {
+
+                       /*  db.collection("users").doc(user_id).get().then((snapshot) => {
                              setName(snapshot.data().name)                    
                              setConta(snapshot.data().conta)
                               setUserName(snapshot.data().name) 
-                              setUserConta(snapshot.data().conta)
-                               
-                             }).catch((e) => console.log(e))
-                      }
+                              setUserConta(snapshot.data().conta)                               
+                             }).catch((e) => console.log(e)) */
+
+
+                             db.collection(user_id).doc("conta").get().then((snapshot) => {
+                              setName(snapshot.data().name)                    
+                              setConta(snapshot.data().number)
+                               setUserName(snapshot.data().name) 
+                               setUserConta(snapshot.data().number)                               
+                              }).catch((e) => console.log(e)) 
+
+
+
+
+                          }
 
                  
                   // setModal(false)
               
                } 
  
+
+
+
+
+
+
 
 
 
@@ -395,7 +628,7 @@ return(
         <TouchableOpacity style={Styles.actionButton}          
           // onPress={()=> navigation.navigate("Pagamentos",{idUser:route.params.idUser})}
            onPress={()=> 
-            navigation.navigate("Pagamentos") & setToday(todayData)         
+            navigation.navigate("Pagamentos") & setToday(todayData)  & setId(user_id)       
                }
          > 
 
@@ -415,7 +648,7 @@ return(
         <TouchableOpacity style={Styles.actionButton}          
          //  onPress={()=> navigation.navigate("Recebimentos",{idUser:route.params.idUser})}
          onPress={()=>
-             navigation.navigate("Recebimentos") & setToday(todayData)            
+             navigation.navigate("Recebimentos") & setToday(todayData) & setId(user_id)            
             }      
          > 
            <View style={Styles.actionAreaButton}>
@@ -451,7 +684,7 @@ return(
 
        <TouchableOpacity style={Styles.actionButton} 
           onPress={()=>
-            navigation.navigate("Cartao") & setToday(todayData)            
+            navigation.navigate("Cartao") & setToday(todayData)          
            }         
          > 
 

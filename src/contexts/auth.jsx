@@ -9,25 +9,33 @@ export const AuthContext = createContext({});
    
      const [today,setToday] = useState ({});
 
+     const [id,setId] = useState ({});   
+     
      const [name,setName] = useState ({});   
 
      const [conta,setConta] = useState ({});
+
+
 
      const [relRec,setRelRec] = useState ({});
 
      const [relPgto,setRelPgto] = useState ({});
 
 
+     const [relValores,setRelValores] = useState ({});
+
+
 
      return(
        <AuthContext.Provider value={ 
           { 
-             setToday , today ,  
+             setToday , today , 
+             setId , id , 
              setName, name ,
              setConta , conta , 
              setRelRec , relRec,
-             setRelPgto , relPgto 
-             
+             setRelPgto , relPgto ,
+             setRelValores , relValores
           } 
           
           }>

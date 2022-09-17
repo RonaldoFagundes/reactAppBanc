@@ -5,8 +5,8 @@ import {
   TextInput, 
   TouchableOpacity,
   KeyboardAvoidingView,   
-  StyleSheet,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
 
 import {MaterialCommunityIcons } from '@expo/vector-icons';
@@ -14,6 +14,7 @@ import {MaterialCommunityIcons } from '@expo/vector-icons';
 import firebase from '../../database/firebase';
 
 import Styles from './Styles'
+
 
 
 
@@ -27,6 +28,7 @@ export default function NewUser({navigation}) {
 const [email, setEmail] = useState ("");
 const [password, setPassword] = useState ("");
 const [errorRegister, setErrorRegister] = useState ("");
+const [errorAlert, setErrorAlert] = useState ("");
 
 
 const db = firebase.firestore();
@@ -34,16 +36,29 @@ const db = firebase.firestore();
 
 const cadastrar = ()=>{
 
- firebase.auth().createUserWithEmailAndPassword(email,password)
+    if (password.length >= 8 ){    
+
+   firebase.auth().createUserWithEmailAndPassword(email,password)
   .then((userCredencial)=>{
     let user = userCredencial.user;
-    navigation.navigate("Home",{idUser:user.uid});
+    //navigation.navigate("Home",{idUser:user.uid});
+    navigation.navigate("Home");
   })
   .catch((error)=>{
     setErrorRegister(true);
     let errorCode = error.code;
     let errorMessage = error.message;
-  });
+  });   
+
+
+ }else{
+  setErrorAlert(" cadastre uma senha com no minimo 8 caracteres");
+  setEmail("");
+  setPassword("");
+  Alert.alert(" Erro ","cadastre uma senha com no minimo 8 caracteres")
+ } 
+
+
 
 }; 
 
@@ -64,7 +79,7 @@ return(
           style={Styles.input}
           placeholder=" enter with a email"
           type="text"
-          onChangeText={(valor)=>setEmail(valor)}
+          onChangeText={(valor)=>setEmail(valor) }
           value={email}
         />
 
@@ -73,7 +88,9 @@ return(
           secureTextEntry={true}
           placeholder=" register a password"          
           type="text"
-          onChangeText={(valor)=>setPassword(valor)}
+
+          onChangeText={(valor)=> setPassword(valor) 
+          }
           value={password}
         />
  
@@ -126,7 +143,9 @@ return(
        </Text>
       <View style={{height:100}}></View>
 
+          
 
+          <Text style={Styles.textRegistration}>{errorAlert}</Text>
 
  </KeyboardAvoidingView>
 );

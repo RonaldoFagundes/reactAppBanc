@@ -28,6 +28,7 @@ const [showResult, setShowResult] = useState(false);
 const { today}   = useContext(AuthContext);
 const { name  }  = useContext(AuthContext);
 const { conta }  = useContext(AuthContext);
+const { id }  = useContext(AuthContext);
 
 const database = firebase.firestore();
 
@@ -38,6 +39,8 @@ const database = firebase.firestore();
 const [recebimentos, setRecebimentos]=useState();
 const [description, setDescription]=useState();
 
+const [valorInf , setValorInf ] =useState ("");
+const [descInf , setDescInf ] =useState ("");
 
 const [comprovante , setComprovate] = useState({
   data:"",
@@ -52,21 +55,33 @@ const [comprovante , setComprovate] = useState({
 
 
  const addRecebimentos = () => {
+   
+  database.collection(id).add({   
+    data:today,    
+    desc:description,
+    recebimento:recebimentos,
+    pagamento:0,
+})  
 
-  // database.collection(route.params.idUser).add({ 
+  /* 
+   database.collection(route.params.idUser).add({ 
      database.collection("recebimentos").add({   
       data:today,    
       conta:conta,   
       desc:description,
       valor:recebimentos,
- }) 
+ })  */
  
+
  setComprovate({
   ...comprovante, data:today ,
      comprovante, desc:description ,
      comprovante, valor:recebimentos
  } );
 
+ setShowResult(true)
+ setValorInf("")   
+ setDescInf("")
  alert("conta Nº "+conta+" valor "+recebimentos+" cadastrada com sucesso! ") 
 
 
@@ -134,7 +149,8 @@ const [comprovante , setComprovate] = useState({
        <TextInput style={Styles.inputPost}
          placeholder=" valor "
          type="number"
-         onChangeText={(valor)=>setRecebimentos(valor)}        
+         value={valorInf}
+         onChangeText={ (value)=>setRecebimentos(value) & setValorInf( parseFloat(value) ) }        
        /> 
    
 
@@ -143,7 +159,8 @@ const [comprovante , setComprovate] = useState({
        <TextInput style={Styles.inputPost}
          placeholder=" descrição "
          type="text"
-         onChangeText={(valor)=>setDescription(valor)}        
+         value={descInf}
+         onChangeText={(value)=>setDescription(value) & setDescInf(value)}        
        /> 
   
 
