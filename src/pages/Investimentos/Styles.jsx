@@ -6,7 +6,7 @@ export default StyleSheet.create({
     body:{
         flex: 1,
         paddingTop: StatusBar.currentHeight,
-        backgroundColor:'rgba(0, 0, 45, 1)'
+        //backgroundColor:'rgba(0, 0, 45, 1)'
     },
 
 
@@ -49,7 +49,7 @@ export default StyleSheet.create({
        height:600,
        flexDirection:'column',
        alignItems:'center',
-       backgroundColor:'rgba(0, 0, 45, 1)'
+       //backgroundColor:'rgba(0, 0, 45, 1)'
      } ,
 
 
@@ -75,7 +75,6 @@ export default StyleSheet.create({
       height:50,
       alignItems:'center',
       justifyContent:'center',
-
       backgroundColor:'#F92E6A',
       color:'#2ecc71',
       borderRadius:10,
@@ -110,7 +109,8 @@ export default StyleSheet.create({
 
    simulatorCardsInfo:{
       fontSize:14,
-      color:'#F92E6A',
+      //color:'#F92E6A',
+      color:'#33FF80',
       fontWeight:'bold',
       marginBottom:10
      },
@@ -124,7 +124,7 @@ export default StyleSheet.create({
     justifyContent:'space-between',
     marginTop:10,
     marginBottom:20,
-    backgroundColor:'rgba(0, 0, 45, 1)'
+    //backgroundColor:'rgba(0, 0, 45, 1)'
  },
 
 
@@ -137,7 +137,7 @@ export default StyleSheet.create({
      justifyContent:'center',
     // marginBottom:20,
     // backgroundColor:'green',
-     backgroundColor:'rgba(0, 70, 45, 1)',
+    // backgroundColor:'rgba(0, 70, 45, 1)',
      borderRadius:10,
      borderWidth:1,
   },
@@ -167,10 +167,12 @@ export default StyleSheet.create({
    containerModal:{
       flex:1,
       flexDirection:'column',  
-      backgroundColor:'rgba(0, 0, 45, 1)',
+    //  backgroundColor:'rgba(0, 0, 45, 1)',
       alignItems:'center',
       justifyContent:'center'
    },
+
+
 
   resultProdOne:{
    width:320,

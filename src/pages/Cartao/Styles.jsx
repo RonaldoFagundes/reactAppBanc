@@ -5,8 +5,7 @@ export default StyleSheet.create({
 
     body:{
         flex: 1,
-        paddingTop: StatusBar.currentHeight,
-        backgroundColor:'rgba(0, 0, 45, 1)'
+        paddingTop: StatusBar.currentHeight,    
     },
 
     header:{

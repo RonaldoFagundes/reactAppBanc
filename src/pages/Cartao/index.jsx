@@ -11,6 +11,8 @@ import {
 
 import Styles from './Styles';
 
+import { LinearGradient } from 'expo-linear-gradient';
+
 import {MaterialCommunityIcons } from '@expo/vector-icons';
 
 import {AuthContext} from '../../contexts/auth';
@@ -54,7 +56,21 @@ export default function Cartao({navigation, route}) {
 
  return(
 
- <View style={Styles.body} >
+ 
+
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 25, 1)',
+    'rgba(0, 0, 15, 0.9)'
+  ]
+}
+style={Styles.body}
+>
+
+
+
 
     <View style={Styles.header}>
         
@@ -153,8 +169,8 @@ export default function Cartao({navigation, route}) {
     </View>    
 
 
-
-   </View>
+  </LinearGradient>
+  
     )
 
 }

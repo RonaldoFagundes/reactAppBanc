@@ -1,4 +1,4 @@
-import React ,{ useContext }from  'react' ;
+import React, { useContext } from 'react';
 import * as Print from 'expo-print';
 import { shareAsync } from 'expo-sharing';
 
@@ -7,39 +7,35 @@ import {
   View,
   Text,
   TouchableOpacity,
-  FlatList 
+  FlatList
 } from 'react-native';
 
 
 import Styles from './Styles';
 
-import {MaterialCommunityIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-import {AuthContext} from '../../contexts/auth';
-
-
-
-
-
-
-export default function Extrato({navigation, route}) { 
+import { AuthContext } from '../../contexts/auth';
 
 
 
-   const { today}   = useContext(AuthContext);
-   const { name  }  = useContext(AuthContext);
-   const { conta }  = useContext(AuthContext);
-   
-   const { relRec  }  = useContext(AuthContext);
-   const { relPgto }  = useContext(AuthContext);
 
-   const { relValores }  = useContext(AuthContext);
 
+
+export default function Extrato({ navigation, route }) {
+
+
+
+  const { today } = useContext(AuthContext);
+  const { name } = useContext(AuthContext);
+  const { conta } = useContext(AuthContext);
   
+  const { relValores } = useContext(AuthContext);
 
-
-  const [selectedPrinter, setSelectedPrinter] = React.useState(); 
+  const [selectedPrinter, setSelectedPrinter] = React.useState();
 
 
   const safeToFile = async () => {
@@ -65,14 +61,14 @@ export default function Extrato({navigation, route}) {
 
 
 
-const createDynamicTable = () => {
+  const createDynamicTable = () => {
 
     var table = "";
 
     for (let i in relValores) {
       const item = relValores[i];
       table = table +
-    `
+        `
      <tr>
       <td>${item.data}</td>
       <td>${item.recebimento}</td>
@@ -80,8 +76,8 @@ const createDynamicTable = () => {
       <td>${item.desc}</td>      
      </tr>   
     `
-  }  
-  const html = `  
+    }
+    const html = `  
   <!DOCTYPE html>
    <html>
     <head>
@@ -105,149 +101,135 @@ const createDynamicTable = () => {
 
    </head>
    <body>
-
-
+     <h1>${today}</h1>
      <div id="rel">
          ${table}
      </div>
 
-
    </body>
   </html> 
 
-  `;  
-  return html; 
-}
+  `;
+    return html;
+  }
 
 
 
 
 
+  return (
 
 
+    <LinearGradient
+
+      colors={
+        [
+          'rgba(0, 0, 25, 1)',
+          'rgba(0, 0, 15, 0.9)'
+        ]
+      }
+      style={Styles.body}
+    >
+
+      <View style={Styles.header}>
+
+         <Text style={Styles.headerTitle}>Tela de Extrato</Text>
+
+      </View>
 
 
+      <View style={Styles.headerContent}>
+
+        <View style={Styles.headerInfo}>
+          <Text style={Styles.headerInfoTitle}>{` user:  ${name} `}</Text>
+          <Text style={Styles.headerInfoTitle}>{` conta:  ${conta}`}</Text>
+        </View>
+
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <View>
+            <MaterialCommunityIcons
+              name="home"
+              size={24}
+              color="#F92E6A"
+            />
+          </View>
+        </TouchableOpacity>
+
+      </View>
 
 
+      <View style={Styles.relContainer} >
+
+        <View style={Styles.relContent} >
+
+          <Text style={Styles.relTextLabel}> Relatório de Movimentação </Text>
+
+          <FlatList
+            data={relValores}
+            renderItem={({ item }) => {
+
+              return (
+
+                <View style={Styles.flatContent} >
+
+                  <Text style={Styles.relTextDescription}>
+                    {` Data :        ${item.data}`}
+                  </Text>
+
+                  <Text style={Styles.relTextDescription}>
+                    {` Recebimentos : ${item.recebimento}`}
+                  </Text>
+
+                  <Text style={Styles.relTextDescription}>
+                    {` Pagamentos :  ${item.pagamento}`}
+                  </Text>
+
+                  <Text style={Styles.relTextDescription}>
+                    {` Descrição :   ${item.desc}`}
+                  </Text>
+
+                </View>
+
+               )
+             }
+            }
+          />
+
+        </View>
 
 
+        <View style={Styles.pdfContent}>
 
-
-
-
- return( 
-
- <View style={Styles.body} >
-
-
-
-     <View style={Styles.header}>
-        
-        <Text style={Styles.headerTitle}>Tela de Extrato</Text>
-
-     </View>
-
-
-
-
-    <View style={Styles.headerContent}>
-
-      <View style={Styles.headerInfo}>  
-        <Text style={Styles.headerInfoTitle}>{` user:  ${name} `}</Text>
-        <Text style={Styles.headerInfoTitle}>{` conta:  ${conta}`}</Text>       
-      </View> 
-     
-      
-      <TouchableOpacity onPress={()=> navigation.navigate("Home")}>
-         <View>
-            <MaterialCommunityIcons 
-                 name="home"
-                 size={24}
-                 color="#F92E6A"
+          <TouchableOpacity style={Styles.extButton}
+            onPress={printToFile}
+           >
+            <View>
+              <MaterialCommunityIcons
+                name="share"
+                size={50}
+                color="#F92E6A"
               />
-         </View>
-      </TouchableOpacity>  
-   
-    </View>
+            </View>
+          </TouchableOpacity>
 
-
-
-
- <View style={Styles.relContainer} >
-
-
-  <View style={Styles.relContent} >
-
-      <Text style={Styles.relTextLabel}> Relatório de Movimentação </Text>
- 
-      <FlatList
-         data={relValores}
-         renderItem={({ item }) => {
-
-      return(
-
-       <View style={Styles.flatContent} >
-     
-          <Text style={Styles.relTextDescription}>
-              {` Data :        ${item.data}`}  
-          </Text> 
-
-          <Text style={Styles.relTextDescription}>
-             {` Recebimentos : ${item.recebimento}`}  
-          </Text> 
-
-          <Text style={Styles.relTextDescription}>
-             {` Pagamentos :  ${item.pagamento}`}  
-          </Text> 
-
-         <Text style={Styles.relTextDescription}>
-             {` Descrição :   ${item.desc}`}  
-         </Text>     
-       
-       </View>
-
-         )
-       }
-     }
-  /> 
-
-  </View>
-
-
-
-   <View style={Styles.pdfContent}>
-
-     <TouchableOpacity style={Styles.extButton} 
-       onPress={printToFile}
-      >   
-         <View>
-            <MaterialCommunityIcons 
-                 name="share"
-                 size={50}
-                 color="#F92E6A"
+          <TouchableOpacity style={Styles.extButton}
+            onPress={safeToFile} >
+            <View>
+              <MaterialCommunityIcons
+                name="file-pdf-box"
+                size={50}
+                color="#F92E6A"
               />
-         </View>            
-     </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
 
-     <TouchableOpacity style={Styles.extButton}
-         onPress={safeToFile} >   
-         <View>
-            <MaterialCommunityIcons 
-                 name="file-pdf-box"
-                 size={50}
-                 color="#F92E6A"
-              />
-         </View>            
-     </TouchableOpacity>
+        </View>
 
-   </View>
+      </View>
 
-</View>
+    </LinearGradient>
 
 
-</View>
+  );
 
-
- );
-  
 };

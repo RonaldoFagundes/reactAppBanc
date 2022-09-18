@@ -11,7 +11,7 @@ import {
   
 } from 'react-native';
 
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 import Styles from './Styles';
 
@@ -470,13 +470,22 @@ const [produtoOne, setProdutoOne] = useState({
   
 
 
- <View>
+ 
 
-  <ScrollView  style={Styles.body} 
-                          vertical={true}
-                          showsVerticalScrollIndicator={false}   
-     
-     >
+
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 45, 1)',
+    'rgba(0, 0, 15, 0.5)'
+  ]
+}
+style={Styles.body}
+>
+
+
+  <ScrollView   vertical={true}  showsVerticalScrollIndicator={false} >
 
 
      <View style={Styles.header}>        
@@ -507,11 +516,23 @@ const [produtoOne, setProdutoOne] = useState({
 
        
     
-    <View style={Styles.simulatorContainer}>     
+       
 
 
-       <Text  style={Styles.simulatorTitle}>Simulador</Text>       
+<LinearGradient
 
+colors={
+  [
+    'rgba(0, 0, 25, 1)',
+    'rgba(0, 0, 65, 0.8)'
+  ]
+}
+style={Styles.simulatorContainer}
+>
+
+
+
+    <Text  style={Styles.simulatorTitle}>Simulador</Text>       
 
       <View style={Styles.simulatorPrice}>
 
@@ -538,8 +559,35 @@ const [produtoOne, setProdutoOne] = useState({
           <Text style={Styles.simulatorCardsText}>Escolha o investimento</Text>
 
 
-         <View style={Styles.simulatorContentCards}>      
+       
 
+
+         <LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 5, 1)',
+    'rgba(0, 0, 45, 1)'
+  ]
+}
+style={Styles.simulatorContentCards}
+>     
+
+
+
+
+
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 85, 1)',
+    'rgba(0,10,0,0.2)', 
+    // 'transparent'
+  ]
+}
+style={Styles.simulatorCards}
+> 
            <TouchableOpacity               
               style={Styles.simulatorCards}           
               onPress={(value) => setValores(produtoOne.name, valorInf) & 
@@ -550,7 +598,23 @@ const [produtoOne, setProdutoOne] = useState({
           
            </TouchableOpacity>
 
-        
+</LinearGradient>
+
+
+
+
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 85, 1)',
+    'rgba(0,10,0,0.2)', 
+     //'transparent'
+  ]
+}
+style={Styles.simulatorCards}
+> 
+
            <TouchableOpacity                 
                 style={Styles.simulatorCards}       
                 onPress={(value) => setValores(produtoTwo.name, valorInf) &
@@ -561,14 +625,52 @@ const [produtoOne, setProdutoOne] = useState({
 
            </TouchableOpacity>
 
+</LinearGradient>
+
+
+
+
+          </LinearGradient>
+
+       
+
+
+
+
+
           
-         </View>
+
+<LinearGradient
+
+colors={
+  [
+    //'rgba(0, 0, 85, 1)',
+    'rgba(0,0,0,0.3)', 
+     'transparent'
+  ]
+}
+style={Styles.simulatorContentCards}
+>  
+ 
+
+ 
 
 
-         <View style={Styles.simulatorContentCards}>      
 
-           <TouchableOpacity                   
-                style={Styles.simulatorCards} 
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 85, 1)',
+    'rgba(0,10,0,0.2)',
+  ]
+}
+style={Styles.simulatorCards}
+> 
+
+    
+           <TouchableOpacity    style={Styles.simulatorCards}              
+               
                 onPress={(value) => setValores(produtoThree.name, valorInf) &
                                     getValores(produtoThree.name)}     
                   >             
@@ -577,8 +679,25 @@ const [produtoOne, setProdutoOne] = useState({
 
            </TouchableOpacity>
 
-           <TouchableOpacity             
-               style={Styles.simulatorCards}      
+</LinearGradient>
+
+
+
+
+<LinearGradient
+
+colors={
+  [
+    'rgba(0, 0, 85, 1)',
+    'rgba(0,10,0,0.2)',
+  ]
+}
+style={Styles.simulatorCards}
+> 
+
+
+           <TouchableOpacity    style={Styles.simulatorCards}         
+                  
                onPress={(value) => setValores(produtoFour.name, valorInf) &
                                    getValores(produtoFour.name)}               
              >           
@@ -587,7 +706,21 @@ const [produtoOne, setProdutoOne] = useState({
 
            </TouchableOpacity> 
 
-         </View>
+     </LinearGradient>
+
+
+
+
+
+
+
+
+
+</LinearGradient>
+         
+
+
+
 
 
 
@@ -598,7 +731,23 @@ const [produtoOne, setProdutoOne] = useState({
    >
 
       
-    <View style={Styles.containerModal}>
+   
+
+
+    <LinearGradient
+
+colors={
+  [
+    //'rgba(0, 0, 15, 1)',
+    //'rgba(0, 0, 05, 0.8)'
+    'rgba(0, 0, 45, 0.9)',
+    'rgba(0, 0, 25, 1)'
+  ]
+}
+style={Styles.containerModal}
+> 
+
+
 
     {produtoOne.show ? (        
         <View style={Styles.resultProdOne }>          
@@ -657,17 +806,29 @@ const [produtoOne, setProdutoOne] = useState({
       <Text  style={Styles.textBtnNew} >Escolha outro</Text> 
    </TouchableOpacity>
 
-   
-  </View>
+
+
+
+   </LinearGradient>
+
+
+ 
 
  </Modal>
 
-</View>
+
+</LinearGradient>
+
+
+
+
+
 
 </ScrollView>
 
-    
- </View>
+
+ </LinearGradient>   
+ 
 
  );
 
