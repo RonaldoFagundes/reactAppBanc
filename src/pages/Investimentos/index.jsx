@@ -6,7 +6,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Modal
+  Modal,
+  Alert
   
 } from 'react-native';
 
@@ -381,7 +382,7 @@ const [produtoOne, setProdutoOne] = useState({
 
        if (valorInf === ""){
 
-           alert("informe um valor ")
+          Alert.alert(" Valor: ","informe um valor ")
 
           }else{
                
@@ -473,8 +474,7 @@ const [produtoOne, setProdutoOne] = useState({
 
   <ScrollView  style={Styles.body} 
                           vertical={true}
-                          showsVerticalScrollIndicator={false}
-     // horizontal={true} showsHorizontalScrollIndicator={false}
+                          showsVerticalScrollIndicator={false}   
      
      >
 
@@ -521,9 +521,8 @@ const [produtoOne, setProdutoOne] = useState({
              placeholder=" informe o valor "
              type="number"
 
-             value={valorInf}
+             value={valorInf}            
              
-             //onChangeText={value=> setValorInf( parseFloat(value).toFixed(2))
               onChangeText={value=> setValorInf( parseFloat(value))
             }          
            /> 
@@ -555,9 +554,7 @@ const [produtoOne, setProdutoOne] = useState({
            <TouchableOpacity                 
                 style={Styles.simulatorCards}       
                 onPress={(value) => setValores(produtoTwo.name, valorInf) &
-                                    getValores(produtoTwo.name)}
-             // onPress={(value) => setCalcular("1",produtoOne.valor) & getCalcular("1")}
-             //   onPress={(value) =>  getValores("1")}
+                                    getValores(produtoTwo.name)}            
              >         
              <Text style={Styles.simulatorCardsTitle}>{produtoTwo.name}</Text> 
              <Text style={Styles.simulatorCardsInfo}>{`taxa de ${produtoTwo.txNominal}% do CDI `}</Text> 
@@ -573,10 +570,8 @@ const [produtoOne, setProdutoOne] = useState({
            <TouchableOpacity                   
                 style={Styles.simulatorCards} 
                 onPress={(value) => setValores(produtoThree.name, valorInf) &
-                                    getValores(produtoThree.name)}          
-             // onPress={(value) => setCalcular("1",produtoOne.valor) & getCalcular("1")}
-             //  onPress={(value) =>  getValores("1")}
-             >             
+                                    getValores(produtoThree.name)}     
+                  >             
              <Text style={Styles.simulatorCardsTitle}>{produtoThree.name}</Text> 
              <Text style={Styles.simulatorCardsInfo}>{`taxa de ${produtoThree.txNominal}% do CDI `}</Text> 
 
@@ -586,8 +581,6 @@ const [produtoOne, setProdutoOne] = useState({
                style={Styles.simulatorCards}      
                onPress={(value) => setValores(produtoFour.name, valorInf) &
                                    getValores(produtoFour.name)}               
-             // onPress={(value) => setCalcular("1",produtoOne.valor) & getCalcular("1")}
-             //   onPress={(value) =>  getValores("1")}
              >           
              <Text style={Styles.simulatorCardsTitle}>{produtoFour.name}</Text>
              <Text style={Styles.simulatorCardsInfo}>{`taxa de ${produtoFour.txNominal}% do CDI `}</Text>
@@ -607,30 +600,25 @@ const [produtoOne, setProdutoOne] = useState({
       
     <View style={Styles.containerModal}>
 
-    {produtoOne.show ? (      
-  // {saldo.toLocaleString("pt-BR",{ style : "currency", currency : "BRL"})}
-        <View style={Styles.resultProdOne }>
-          
+    {produtoOne.show ? (        
+        <View style={Styles.resultProdOne }>          
          <Text style={Styles.resultTxt }>{` Aplicação : R$ ${produtoOne.valorApli} `}</Text>     
          <Text style={Styles.resultTxt }>{` valor Bruto : R$ ${produtoOne.bruto} `}</Text> 
          <Text style={Styles.resultTxt }>{` Imposto de renda : R$ ${produtoOne.valorIr} `}</Text>        
          <Text style={Styles.resultTxt }>{` valor liquido : R$ ${produtoOne.liquido} `}</Text> 
-         <Text style={Styles.resultTxt }>{` Prazo para resgate :  ${produtoOne.prazo} `}</Text>  
-            
-        </View>
+         <Text style={Styles.resultTxt }>{` Prazo para resgate :  ${produtoOne.prazo} `}</Text> 
+       </View>
          ):
         <View></View>
    }
 
    {produtoTwo.show ? (
     <View style={Styles.resultProdTwo }>
-
       <Text style={Styles.resultTxt }>{` Aplicação  : R$ ${valorInf} `}</Text> 
       <Text style={Styles.resultTxt }>{` valor Bruto : R$ ${produtoTwo.bruto} `}</Text> 
       <Text style={Styles.resultTxt }>{` Imposto de renda : R$ ${produtoTwo.valorIr} `}</Text>      
       <Text style={Styles.resultTxt }>{` valor liquido : R$ ${produtoTwo.liquido} `}</Text> 
       <Text style={Styles.resultTxt }>{` Prazo para resgate :  ${produtoTwo.prazo}m + 1 dia `}</Text> 
-
    </View>
    ):
    <View></View>
@@ -638,13 +626,11 @@ const [produtoOne, setProdutoOne] = useState({
 
   {produtoThree.show ? (
    <View style={Styles.resultProdThree }>
-
     <Text style={Styles.resultTxt }>{` Aplicação  : R$ ${valorInf} `}</Text> 
     <Text style={Styles.resultTxt }>{` valor Bruto : R$ ${produtoThree.bruto} `}</Text> 
     <Text style={Styles.resultTxt }>{` Imposto de renda : R$ ${produtoThree.valorIr} `}</Text>  
     <Text style={Styles.resultTxt }>{` valor liquido : R$ ${produtoThree.liquido} `}</Text> 
     <Text style={Styles.resultTxt }>{` Prazo para resgate :  ${produtoThree.prazo}m + 1 dia `}</Text> 
-
    </View>
  ):
   <View></View>
@@ -654,13 +640,11 @@ const [produtoOne, setProdutoOne] = useState({
 
 {produtoFour.show ? (
   <View style={Styles.resultProdFour }>
-
    <Text style={Styles.resultTxt }>{` Aplicação : R$ ${valorInf} `}</Text> 
    <Text style={Styles.resultTxt }>{` valor Bruto : R$ ${produtoFour.bruto} `}</Text> 
    <Text style={Styles.resultTxt }>{` Imposto de renda : R$ ${produtoFour.valorIr} `}</Text>    
    <Text style={Styles.resultTxt }>{` valor liquido : R$ ${produtoFour.liquido} `}</Text> 
    <Text style={Styles.resultTxt }>{` Prazo para resgate :  ${produtoFour.prazo}m + 1 dia `}</Text> 
-
   </View>
  ):
   <View></View>
@@ -674,13 +658,9 @@ const [produtoOne, setProdutoOne] = useState({
    </TouchableOpacity>
 
    
-
-
-
   </View>
 
  </Modal>
-
 
 </View>
 

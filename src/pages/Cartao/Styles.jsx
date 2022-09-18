@@ -45,13 +45,6 @@ export default StyleSheet.create({
 
 
 
-
-
-
-
-
-
-
     cardContainer:{       
         height:400,       
         flexDirection:'column',

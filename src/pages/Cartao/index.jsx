@@ -154,16 +154,7 @@ export default function Cartao({navigation, route}) {
 
 
 
-
-
-
-
-
-
-
-
-
-        </View>
+   </View>
     )
 
 }

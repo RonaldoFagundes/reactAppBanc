@@ -63,9 +63,4 @@ export default StyleSheet.create({
 
 
 
-
-
-
-
-
 });

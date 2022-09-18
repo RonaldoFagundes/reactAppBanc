@@ -15,7 +15,6 @@ import Styles from './Styles';
 
 import {MaterialCommunityIcons } from '@expo/vector-icons';
 
-//import firebase from '../../database/firebase';
 
 import {AuthContext} from '../../contexts/auth';
 
@@ -37,7 +36,7 @@ export default function Extrato({navigation, route}) {
 
    const { relValores }  = useContext(AuthContext);
 
-  // const db = firebase.firestore();
+  
 
 
   const [selectedPrinter, setSelectedPrinter] = React.useState(); 
@@ -179,7 +178,7 @@ const createDynamicTable = () => {
 
   <View style={Styles.relContent} >
 
-      <Text style={Styles.relTextLabel}> Relatório de Recebimentos </Text>
+      <Text style={Styles.relTextLabel}> Relatório de Movimentação </Text>
  
       <FlatList
          data={relValores}
@@ -214,43 +213,6 @@ const createDynamicTable = () => {
 
   </View>
 
-
-
-
-
-
-{/*  <View>
-
-
-    <Text style={Styles.relTextLabel}> Relatório de Pagamentos </Text>
-
-   <FlatList
-     data={relPgto}
-     renderItem={({ item }) => {
-
-     return(
-
-      <View style={Styles.flatContent}>     
-
-        <Text style={Styles.relTextDescription}>
-          {` Data :       ${item.data}`}  
-        </Text> 
-
-        <Text style={Styles.relTextDescription}>
-          {` Valor :      ${item.pagamento}`}  
-        </Text>
-
-        <Text style={Styles.relTextDescription}>
-          {` Descrição :  ${item.desc}`}  
-        </Text>  
-       
-      </View>
-       )
-     }
-   }
-/> 
-
-</View> */}
 
 
    <View style={Styles.pdfContent}>

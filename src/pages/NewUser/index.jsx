@@ -28,7 +28,7 @@ export default function NewUser({navigation}) {
 const [email, setEmail] = useState ("");
 const [password, setPassword] = useState ("");
 const [errorRegister, setErrorRegister] = useState ("");
-const [errorAlert, setErrorAlert] = useState ("");
+
 
 
 const db = firebase.firestore();
@@ -36,7 +36,7 @@ const db = firebase.firestore();
 
 const cadastrar = ()=>{
 
-    if (password.length >= 8 ){    
+ if (password.length >= 8 ){    
 
    firebase.auth().createUserWithEmailAndPassword(email,password)
   .then((userCredencial)=>{
@@ -52,7 +52,6 @@ const cadastrar = ()=>{
 
 
  }else{
-  setErrorAlert(" cadastre uma senha com no minimo 8 caracteres");
   setEmail("");
   setPassword("");
   Alert.alert(" Erro ","cadastre uma senha com no minimo 8 caracteres")
@@ -144,9 +143,6 @@ return(
       <View style={{height:100}}></View>
 
           
-
-          <Text style={Styles.textRegistration}>{errorAlert}</Text>
-
  </KeyboardAvoidingView>
 );
 
@@ -155,62 +151,4 @@ return(
 };
 
 
-/* const styles = StyleSheet.create ({
-  container:{
-    flex:1,
-    backgroundColor:'#fff',
-    alignItems:'center',
-    justifyContent:'center',
-    paddingTop: Platform.OS === "ios"? 0 : 50,
-  },
-  title:{
-    fontSize:48,
-    color:"#F92E6A",
-    fontWeight:'bold',
-    marginBottom:10
-  },
-  input:{
-      width:300,
-      height:50,
-      marginTop:10,
-      padding:10,
-      borderBottomWidth:1,
-      borderBottomColor:"#F92E6A",
-      marginLeft:'auto',
-      marginRight:'auto',
-      color:"#4d5156"
-  },  
-  btnLogin:{
-      width:200,
-      height:50,
-      backgroundColor:'#F92E6A',
-      justifyContent:'center',
-      alignItems:'center',     
-      borderRadius:50,
-      marginTop:30
-  },
-  textLogin:{    
-    color:"#ffffff",   
-  },
-  textRegistration:{
-     marginTop:20,
-     color:'#4d5156' 
-  },
-  linkSubscribe:{
-    color:'#1877f2',
-    fontSize:16
-  },
-  contentAlert:{
-    marginTop:20,
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center'
 
-  },
-  warningAlert:{
-    paddingLeft:10,
-    color:'#bdbdbd',
-    fontSize:16
-  }
-
-  }) */

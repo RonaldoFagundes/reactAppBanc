@@ -6,12 +6,13 @@ import {
   TextInput, 
   TouchableOpacity,
   KeyboardAvoidingView,   
-  Platform
-} from 'react-native';
+  Platform,
+  } from 'react-native';
 
 
 
 import {MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 import firebase from '../../database/firebase';
 

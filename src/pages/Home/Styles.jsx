@@ -6,25 +6,19 @@ export default StyleSheet.create({
    
 body:{
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor:'rgba(0,0, 50, 0.97)',
-   
-},
+    paddingTop: StatusBar.currentHeight,     
+ },
 
 
 
 
 
-headerContent:{
-  // backgroundColor:'rgba(0, 61, 115, 1)',
-   height:140,
-   //backgroundColor:'rgba(0, 20, 65, 1)',
-   backgroundColor:'rgba(0, 74, 80, 0.6)',
+headerContent:{  
+   height:140,  
    flexDirection:'row',
    alignItems:'center',
    justifyContent:'space-between',
-   padding:10,
-   
+   padding:10,   
  },
 
 
@@ -36,24 +30,12 @@ headerTitle:{
 
 
 
-mainContainer:{
-    //flex: 1,
-    height:440,
-   //backgroundColor:'rgba(0,63, 85, 0.97)',
-   backgroundColor:'rgba(0,0, 50, 0.97)',
-   
+mainContainer:{ 
+    height:440,   
     flexDirection:'column',
     justifyContent:'center',
     alignItems:'center'
-
    },
-
-
-
-
-
-
-
 
 
 
@@ -62,22 +44,16 @@ mainContainer:{
 
 balanceContainer:{
     width:340,
-    height:120,
-    backgroundColor:'rgba(0,0, 50, 0.97)',
-    flexDirection:'column',
-    //padding:20,
-    //borderRadius:20,
-
+    height:120,  
+    flexDirection:'column', 
     justifyContent:'space-between',
     paddingStart:20,
     paddingEnd:18,
     paddingTop:22,
     paddingBottom:22,
-
     marginTop:-184,
     marginStart:14,
     marginEnd:14,
-
     borderRadius:10,    
     zIndex:99
  },
@@ -106,12 +82,7 @@ balanceContainer:{
 },
 
 
- /* balanceCurrencySymbol:{
-     color:'#DADADA',
-     marginRight:6
- }, */
-
-
+ 
 
  balanceValue:{
      fontSize:22,
@@ -132,11 +103,6 @@ balanceContainer:{
   
 },
 
-/* balanceHidenText:{
-    fontSize:16,
-    color:'black',
-    fontWeight:'bold',
-}, */
 
 
 
@@ -144,16 +110,11 @@ balanceContainer:{
 
  actionContent:{
     width:360,
-   // backgroundColor:'rgba(37,73,77, 0.96)',    
     backgroundColor:'rgba(0, 20, 65, 1)',  
     height:124,
     paddingTop:20,
     marginTop:44,
-    borderRadius:10
-   // paddingEnd:14,
-   // paddingStart:14,
-
-    
+    borderRadius:10   
   },
   
   
@@ -162,8 +123,7 @@ balanceContainer:{
       marginLeft:32
   },
   
-  actionAreaButton:{
-     //backgroundColor:'rgba(0,06,77, 0.96)',
+  actionAreaButton:{ 
      backgroundColor:'#F92E6A',
      height:60,
      width:60,
@@ -186,15 +146,13 @@ balanceContainer:{
   
 
   modalContent:{
-      flex:1,
-     // backgroundColor:'rgba(0,0,0, 0.5)',
-
+      flex:1,    
       backgroundColor:'black',
-
       flexDirection:'column',
       justifyContent:'center',
       alignItems:'center'  
   },
+
   modalTextLabel:{
     fontSize:30,
     fontWeight:'bold',
@@ -218,9 +176,7 @@ balanceContainer:{
     marginTop:10,
     padding:10,
     borderBottomWidth:1,
-    borderBottomColor:"#F92E6A",
-  //  marginLeft:'auto',
- //   marginRight:'auto',
+    borderBottomColor:"#F92E6A", 
     color:"#bdbdbd"
   },
   modalBtn:{

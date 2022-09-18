@@ -1,109 +1,109 @@
-import {StyleSheet, StatusBar} from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 
 
 export default StyleSheet.create({
 
-    body:{
-        flex: 1,
-        paddingTop: StatusBar.currentHeight,
-        backgroundColor:'rgba(0, 0, 45, 1)'
-    },
+  body: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+  },
 
-    header:{
-        alignItems:'center',
-        justifyContent:'center',
-        padding:5,
-        marginBottom:15
-    },
-    
-    headerTitle:{
-       fontSize:24,
-       color:'#2ecc71',
-       fontWeight:'bold',
-    },
+  header: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 5,
+    marginBottom: 15
+  },
 
-    headerContent:{
-      flexDirection:'row',
-      alignItems:'center',
-      justifyContent:'space-between',
-      marginBottom:25
-    },
+  headerTitle: {
+    fontSize: 24,
+    color: '#2ecc71',
+    fontWeight: 'bold',
+  },
+
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 25
+  },
 
 
-    headerInfo:{
-      flexDirection:'column',
-      padding:5
-    },
+  headerInfo: {
+    flexDirection: 'column',
+    padding: 5
+  },
 
-    headerInfoTitle:{
-       fontSize:16,
-       color:'#2ecc71',
-       fontWeight:'bold',
-    },
-
+  headerInfoTitle: {
+    fontSize: 16,
+    color: '#2ecc71',
+    fontWeight: 'bold',
+  },
 
 
 
 
 
-    containerPost:{
-        flexDirection:'column',
-        alignItems:'center',
-        marginBottom:25
-    },
+
+  containerPost: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: 25
+  },
 
 
-    inputPost:{
-        width:300,
-        height:50,
-        marginTop:10,
-        padding:10,
-        borderBottomWidth:1,
-        borderBottomColor:"#F92E6A",
-        marginLeft:'auto',
-        marginRight:'auto',
-        color:"#bdbdbd"
-    },  
+  inputPost: {
+    width: 300,
+    height: 50,
+    marginTop: 10,
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#F92E6A",
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    color: "#bdbdbd"
+  },
 
 
-    btnPost:{
-        width:200,
-        height:50,
-        backgroundColor:'#F92E6A',
-        justifyContent:'center',
-        alignItems:'center',     
-        borderRadius:50,
-        marginTop:30
-    },
+  btnPost: {
+    width: 200,
+    height: 50,
+    backgroundColor: '#F92E6A',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    marginTop: 30
+  },
+
+  btnTitle: {
+    fontSize: 18,
+    color: '#000000',
+    fontWeight: 'bold',
+  },
+
+  containerDefault: {
+    height: 120,
+  },
 
 
 
-    containerDefault:{
-      height:120,
-      backgroundColor:'rgba(0, 0, 45, 0.8)', 
-
-    },
-
-
-
-    containerResult:{
-      height:120,
-      backgroundColor:'rgba(0, 0, 45, 0.8)', 
-      flexDirection:'column',
-      alignItems:'center',
-      justifyContent:'center',
-      borderRadius:50,
-      borderWidth:1,
-      borderColor:"#F92E6A",
-    },
+  containerResult: {
+    height: 120,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: "#F92E6A",
+  },
 
 
-    containerResultTitle:{
-        fontSize:18,
-        color:'#2ecc71',
-        fontWeight:'bold',
+  containerResultTitle: {
+    fontSize: 18,
+    color: '#2ecc71',
+    fontWeight: 'bold',
 
-    }
+  }
 
 
 });
