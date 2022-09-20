@@ -5,8 +5,7 @@ export default StyleSheet.create({
 
     body:{
         flex: 1,
-        paddingTop: StatusBar.currentHeight,
-        //backgroundColor:'rgba(0, 0, 45, 1)'
+        paddingTop: StatusBar.currentHeight,       
     },
 
 
@@ -49,7 +48,7 @@ export default StyleSheet.create({
        height:600,
        flexDirection:'column',
        alignItems:'center',
-       //backgroundColor:'rgba(0, 0, 45, 1)'
+           
      } ,
 
 
@@ -57,6 +56,7 @@ export default StyleSheet.create({
     fontSize:20,
     color:'#2ecc71',
     fontWeight:'bold',
+    marginTop:20,
     marginBottom:10
    },
 

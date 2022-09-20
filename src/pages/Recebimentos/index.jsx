@@ -144,7 +144,7 @@ export default function Recebimentos({ navigation, route }) {
       <View style={Styles.containerPost}>
 
         <TextInput style={Styles.inputPost}
-          placeholder=" valor "
+          placeholder=" valor "  placeholderTextColor="#ffffff"
           type="number"
           value={valorInf}
           onChangeText={(value) => setRecebimentos(value) & setValorInf(parseFloat(value))}
@@ -154,7 +154,7 @@ export default function Recebimentos({ navigation, route }) {
 
 
         <TextInput style={Styles.inputPost}
-          placeholder=" descrição "
+          placeholder=" descrição "  placeholderTextColor="#ffffff"
           type="text"
           value={descInf}
           onChangeText={(value) => setDescription(value) & setDescInf(value)}

@@ -30,12 +30,7 @@ headerTitle:{
 
 
 
-mainContainer:{ 
-    height:440,   
-    flexDirection:'column',
-    justifyContent:'center',
-    alignItems:'center'
-   },
+
 
 
 
@@ -43,7 +38,7 @@ mainContainer:{
 
 
 balanceContainer:{
-    width:340,
+    width:380,
     height:120,  
     flexDirection:'column', 
     justifyContent:'space-between',
@@ -51,7 +46,7 @@ balanceContainer:{
     paddingEnd:18,
     paddingTop:22,
     paddingBottom:22,
-    marginTop:-184,
+    marginTop:-30,
     marginStart:14,
     marginEnd:14,
     borderRadius:10,    
@@ -69,7 +64,7 @@ balanceContainer:{
 
 
  balanceItem:{
-    width:100,
+    width:140,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
@@ -105,13 +100,21 @@ balanceContainer:{
 
 
 
+actionContainer:{
+  width:'auto',
+  //backgroundColor:'rgba(0, 20, 65, 1)',  
+  height:380,
+  flexDirection:'row',
+  alignItems:'center',
+  justifyContent:'space-between',  
+},
 
 
 
  actionContent:{
     width:360,
     backgroundColor:'rgba(0, 20, 65, 1)',  
-    height:124,
+    height:164,
     paddingTop:20,
     marginTop:44,
     borderRadius:10   

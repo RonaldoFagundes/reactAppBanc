@@ -59,6 +59,8 @@ export default function Login({ navigation }) {
         // let user = userCredencial.user;
         // navigation.navigate("Home",{idUser:user.uid});
         navigation.navigate("Home");
+        setEmail("");
+        setPassword("")
         //navigation.navigate("Home",{idUser:email});
       })
       .catch((error) => {
@@ -105,7 +107,7 @@ export default function Login({ navigation }) {
 
           style={Styles.input}
 
-          placeholder=" enter with your email"
+          placeholder=" enter with your email" placeholderTextColor="#ffffff"
           type="text"
           onChangeText={(valor) => setEmail(valor)}
           value={email}
@@ -114,7 +116,7 @@ export default function Login({ navigation }) {
         <TextInput
           style={Styles.input}
           secureTextEntry={true}
-          placeholder=" enter your password"
+          placeholder=" enter your password" placeholderTextColor="#ffffff"
           type="text"
           onChangeText={(valor) => setPassword(valor)}
           value={password}

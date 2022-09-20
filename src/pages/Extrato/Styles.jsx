@@ -41,26 +41,24 @@ export default StyleSheet.create({
     },
 
 
+
+
     relContainer:{
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'rgba(0, 0, 45, 1)'
-    },
+        marginTop:30,
+        marginBottom:200,
+       },
+
 
 
    relContent:{
-     marginBottom:50
+     marginBottom:10
    },
    
 
-   relTextLabel:{
-    fontSize:20,
-    color:'#2ecc71',
-    fontWeight:'bold',
-    textAlign:'center'
-   },
-
+  
 
    relTextDescription:{
     fontSize:14,
@@ -87,6 +85,7 @@ export default StyleSheet.create({
   
   pdfContent:{
      width:200,
+     height:40,
      flexDirection:'row',
      justifyContent:'space-between'
   }

@@ -42,7 +42,7 @@ const [selic,setSelic] =useState ({
 });
 
 
-const [valorInf , setValorInf ] =useState ("");
+const [valorInf , setValorInf ] =useState ();
 
 const [clearChossed, setClearChossed] = useState();
 
@@ -478,7 +478,7 @@ const [produtoOne, setProdutoOne] = useState({
 colors={
   [
     'rgba(0, 0, 45, 1)',
-    'rgba(0, 0, 15, 0.5)'
+    'rgba(0, 0, 72, 1)'
   ]
 }
 style={Styles.body}
@@ -544,7 +544,7 @@ style={Styles.simulatorContainer}
 
              value={valorInf}            
              
-              onChangeText={value=> setValorInf( parseFloat(value))
+              onChangeText={value=> setValorInf(value)
             }          
            /> 
   

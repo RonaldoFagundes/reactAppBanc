@@ -156,7 +156,11 @@ export default function Home({ navigation, route }) {
 
    const pagamentos = valores.reduce((soma, valor) => soma + parseFloat(valor.pagamento), 0)
 
-   const saldo = recebimentos - pagamentos;
+  
+   
+
+   let saldo = 0 ;
+       saldo = recebimentos - pagamentos ;
 
 
 
@@ -250,8 +254,8 @@ export default function Home({ navigation, route }) {
 
          colors={
             [
-               'rgba(0,0, 50, 0.97)',
-               'rgba(0, 0, 10, 0.92)',
+              'rgba(0,0, 50, 0.97)',
+              'rgba(0, 13, 15 ,1)',
             ]
          }
          style={Styles.body}
@@ -304,15 +308,7 @@ export default function Home({ navigation, route }) {
 
 
 
-         <LinearGradient
-            colors={
-               [
-                  'rgba(rgba(20,20, 50, 0.97)',
-                  'rgba(rgba(05, 10, 20, 0.6)'
-               ]
-            }
-            style={Styles.mainContainer}
-         >
+      
 
 
 
@@ -344,9 +340,10 @@ export default function Home({ navigation, route }) {
                      <TouchableOpacity onPress={() => setShowValue(!showValue)}>
                         {showValue
                            ? (
-                              <Text style={Styles.balanceValue}>
+                             /*  <Text style={Styles.balanceValue}>
                                  {saldo.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
-                              </Text>
+                              </Text> */
+                              <Text style={Styles.balanceValue}>{`R$ ${saldo.toFixed(2)}`}</Text>
                            )
                            : (
                               <View style={Styles.balanceHiden}>
@@ -370,7 +367,21 @@ export default function Home({ navigation, route }) {
 
 
 
-            <View>
+
+
+
+            <LinearGradient
+               colors={
+                  [
+                     'rgba(rgba(rgba(0,0, 50, 0.97)',
+                     'rgba(rgba(rgba(0,0, 30, 0.98)'
+                  ]
+               }
+               style={Styles.actionContainer}
+            >
+
+
+
 
                <ScrollView style={Styles.actionContent}
                   horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -466,7 +477,9 @@ export default function Home({ navigation, route }) {
                </ScrollView>
 
 
-            </View>
+
+
+            </LinearGradient>
 
 
 
@@ -512,7 +525,7 @@ export default function Home({ navigation, route }) {
             </Modal>
 
 
-         </LinearGradient>
+      
 
 
       </LinearGradient>

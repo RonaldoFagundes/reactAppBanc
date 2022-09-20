@@ -3,7 +3,7 @@ import * as Print from 'expo-print';
 import { shareAsync } from 'expo-sharing';
 
 
-import {
+import {  
   View,
   Text,
   TouchableOpacity,
@@ -87,25 +87,85 @@ export default function Extrato({ navigation, route }) {
        body{
          margin:0px;
          padding:0px;
-         background-color: rgba(0, 48, 63, 0.91);
-         display: block;
-         justify-content: center;
-         align-items: center;
-       }
-       #rel {
-        width: auto;
+         text-align: center;
+        }
+
+        #div {
+          width: 1000px;
+          height: 800px;
+          background-color: rgba(27, 59, 78, 1);
+          background-image: linear-gradient(to bottom, transparent, rgba(27, 59, 78, 0.5));
+          padding: 20px;
+          margin-left: 10px;
+          margin-top: 80px
+        }
+
+      table {
         height: auto;
-        background-color: rgba(0, 48, 63, 0.56);
+        width: 98%;
+        padding: 5px;
+        border-collapse: separate;
+        border-spacing: 2px;
+        background-color: rgba(0, 0, 0, 0.3);
+        margin: 10px;
+      }
+      th {
+        font-size: 1.6em;
+        text-transform: capitalize;
+        color: rgba(221, 240, 210, 0.9);
+        background-color: black;
+      }
+      tr,
+      td {
+        border: 2px solid black;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.1em;
+        line-height: 1.66667em;
+        color: rgba(256, 234, 211, 0.8);
+        text-transform: capitalize;
+        padding: 2px;
       }
     </style>
 
    </head>
-   <body>
-     <h1>${today}</h1>
-     <div id="rel">
-         ${table}
-     </div>
 
+   <body>   
+    
+
+      <div id="div">
+         
+        <table>
+
+         <thead>
+
+          <tr>
+           <td colspan="20">${today}</td>
+          </tr>
+
+          <tr>
+            <th colspan="20">Extrato</th>
+          </tr>
+            
+          <tr>
+           <td colspan="1" rowspan="3">Data</td>
+           <td colspan="1" rowspan="3">Recebimentos</td>
+           <td colspan="1" rowspan="3">Pagamentos</td>
+           <td colspan="1" rowspan="3">Descrição</td>          
+         </tr>
+          
+        </thead>
+
+        <tbody>          
+         <tr>
+          ${table}
+         </tr>             
+        </tbody>
+
+      </table>
+
+      </div>    
    </body>
   </html> 
 
@@ -118,9 +178,12 @@ export default function Extrato({ navigation, route }) {
 
 
   return (
+  
+   
+   
 
 
-    <LinearGradient
+   <LinearGradient
 
       colors={
         [
@@ -130,6 +193,7 @@ export default function Extrato({ navigation, route }) {
       }
       style={Styles.body}
     >
+
 
       <View style={Styles.header}>
 
@@ -159,11 +223,9 @@ export default function Extrato({ navigation, route }) {
 
 
       <View style={Styles.relContainer} >
+     
 
-        <View style={Styles.relContent} >
-
-          <Text style={Styles.relTextLabel}> Relatório de Movimentação </Text>
-
+        <View style={Styles.relContent} >       
           <FlatList
             data={relValores}
             renderItem={({ item }) => {
@@ -194,8 +256,9 @@ export default function Extrato({ navigation, route }) {
              }
             }
           />
-
         </View>
+
+
 
 
         <View style={Styles.pdfContent}>
@@ -225,11 +288,16 @@ export default function Extrato({ navigation, route }) {
 
         </View>
 
+
+
       </View>
 
     </LinearGradient>
 
+  
 
+  
+  
   );
 
 };
