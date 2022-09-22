@@ -28,8 +28,10 @@ app react-native/firebase
  
 
   &nbsp;
+  ## youtube :
+  &nbsp;
   :point_right:
-  [youtube](https://www.youtube.com/watch?v=OAXibz_2vn0)
+  [assistir](https://www.youtube.com/watch?v=OAXibz_2vn0)
 
 
    &nbsp;
