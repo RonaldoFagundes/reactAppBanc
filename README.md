@@ -31,10 +31,9 @@ app react-native/firebase
   ## youtube :
   &nbsp;
   :point_right:
-  <!-- [assistir](https://www.youtube.com/watch?v=OAXibz_2vn0) -->
+  <!-- [assistir](https://www.youtube.com/watch?v=OAXibz_2vn0)    -->
   
-  [assistir](https://www.youtube.com/watch?v=OAXibz_2vn0){:target="_blank"}
-
+  [assistir](https://www.youtube.com/watch?v=OAXibz_2vn0" target="_blank)
    &nbsp;
    
    ## Imagens app :
