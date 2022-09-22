@@ -26,6 +26,12 @@ app react-native/firebase
  - expo-linear-gradient
  - kanban
  
+
+  &nbsp;
+  :point_right:
+  [youtube](https://www.youtube.com/watch?v=OAXibz_2vn0)
+
+
    &nbsp;
    
    ## Imagens app :
