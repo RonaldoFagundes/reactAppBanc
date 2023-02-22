@@ -165,6 +165,7 @@ export default function Login({ navigation }) {
           </Text>
 
         </Text>
+		
         <View style={{ height: 100 }}></View>
 
 
